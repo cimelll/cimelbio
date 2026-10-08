@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Create Social Media Links by Cimel</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 *{
   margin:0;
@@ -242,11 +238,11 @@ input::placeholder{
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transisi);
+  border: none;
 }
 
 .btn-buka{
   background: linear-gradient(90deg, #60a5fa, #93c5fd);
-  border: none;
   color: #1e3a8a;
 }
 
@@ -257,12 +253,12 @@ input::placeholder{
 
 .btn-salin{
   background: rgba(96,165,250,0.1);
-  border: 1px solid var(--batas);
+  border: 1px solid var(--batas) !important;
   color: var(--biru-dalam);
 }
 
 .btn-salin:hover{
-  border-color: var(--biru-soft);
+  border-color: var(--biru-soft) !important;
   background: rgba(96,165,250,0.15);
 }
 
@@ -270,7 +266,7 @@ input::placeholder{
   width: 100%;
   margin-top: 12px;
   background: rgba(96,165,250,0.12);
-  border: 1px solid var(--batas);
+  border: 1px solid var(--batas) !important;
   color: var(--biru-dalam);
 }
 
@@ -308,12 +304,8 @@ input::placeholder{
   padding: 20px;
 }
 
-.popup-latar.aktif{
-  display: flex;
-}
-
 .popup-kotak{
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(96, 165, 250, 0.3);
   border-radius: 20px;
   padding: 32px 28px;
@@ -321,12 +313,6 @@ input::placeholder{
   width: 100%;
   text-align: center;
   box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
-  animation: muncul 0.3s ease;
-}
-
-@keyframes muncul{
-  from{opacity:0;transform:scale(0.9)}
-  to{opacity:1;transform:scale(1)}
 }
 
 .popup-ikon{
@@ -379,7 +365,7 @@ input::placeholder{
   h1{font-size: 22px;}
   .form-card{padding: 20px 16px;}
   .warna-grid{grid-template-columns: repeat(2, 1fr);}
-  .aksi{flex-direction:column;}
+  .aksi{flex-direction: column;}
   .popup-kotak{padding: 24px 20px;}
 }
 </style>
@@ -398,51 +384,51 @@ input::placeholder{
 
     <p class="section-title">Pilih warna tema website kamu</p>
     <div class="warna-grid" id="pilihanWarna">
-      <div class="warna-item terpilih" data-warna="cyan-putih">
+      <div class="warna-item terpilih" data-warna="cyan-putih" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#06b6d4,#ffffff)"></div>
         Cyan Putih
       </div>
-      <div class="warna-item" data-warna="rose-putih">
+      <div class="warna-item" data-warna="rose-putih" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#f43f5e,#ffffff)"></div>
         Rose Putih
       </div>
-      <div class="warna-item" data-warna="hitam-putih">
+      <div class="warna-item" data-warna="hitam-putih" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#000000,#ffffff)"></div>
         Hitam Putih
       </div>
-      <div class="warna-item" data-warna="gold-hitam">
+      <div class="warna-item" data-warna="gold-hitam" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#d4af37,#121212)"></div>
         Gold Hitam
       </div>
-      <div class="warna-item" data-warna="gold-coklat">
+      <div class="warna-item" data-warna="gold-coklat" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#d4af37,#5c3c1f)"></div>
         Gold Coklat
       </div>
-      <div class="warna-item" data-warna="alpukat-tosca">
+      <div class="warna-item" data-warna="alpukat-tosca" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#84cc16,#0d9488)"></div>
         Alpukat Tosca
       </div>
-      <div class="warna-item" data-warna="abu-putih">
+      <div class="warna-item" data-warna="abu-putih" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#6b7280,#f9fafb)"></div>
         Abu Abu Putih
       </div>
-      <div class="warna-item" data-warna="orange-putih">
+      <div class="warna-item" data-warna="orange-putih" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#f97316,#ffffff)"></div>
         Orange Putih
       </div>
-      <div class="warna-item" data-warna="kuning-hitam">
+      <div class="warna-item" data-warna="kuning-hitam" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#facc15,#000000)"></div>
         Kuning Hitam
       </div>
-      <div class="warna-item" data-warna="pink-banana">
+      <div class="warna-item" data-warna="pink-banana" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#fbcfe8,#fff8c5)"></div>
         Pink Banana
       </div>
-      <div class="warna-item" data-warna="merah-hitam">
+      <div class="warna-item" data-warna="merah-hitam" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#dc2626,#000000)"></div>
         Merah Hitam
       </div>
-      <div class="warna-item" data-warna="biru-ungu">
+      <div class="warna-item" data-warna="biru-ungu" onclick="pilihWarna(this)">
         <div class="warna-sample" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)"></div>
         Biru Ungu
       </div>
@@ -545,19 +531,19 @@ const pengaturanWarna = {
   'biru-ungu': { gradien: 'linear-gradient(180deg, #3b82f6, #8b5cf6)', teks: '#ffffff', item: 'rgba(255,255,255,0.15)', itemHover: 'rgba(255,255,255,0.25)', border: '#a78bfa' }
 };
 
-document.querySelectorAll('.warna-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.warna-item').forEach(i => i.classList.remove('terpilih'));
-    item.classList.add('terpilih');
-    warnaTerpilih = item.dataset.warna;
-  });
-});
+function pilihWarna(el){
+  document.querySelectorAll('.warna-item').forEach(item => item.classList.remove('terpilih'));
+  el.classList.add('terpilih');
+  warnaTerpilih = el.getAttribute('data-warna');
+}
 
 function bersihkanLink(link, tipe){
   if(!link || link.trim() === "") return null;
   link = link.trim();
   if(tipe === 'wa' && !link.startsWith('http')){
     let nomor = link.replace(/\D/g,'');
+    if(nomor.startsWith('0')) nomor = nomor.substring(1);
+    if(!nomor.startsWith('62')) nomor = '62' + nomor;
     return `https://wa.me/${nomor}`;
   }
   if(!link.startsWith('http://') && !link.startsWith('https://')){
@@ -658,18 +644,18 @@ function proses(){
 
   const data = {
     wa: bersihkanLink(document.getElementById('wa').value, 'wa'),
-    waChannel: bersihkanLink(document.getElementById('waChannel').value),
-    tiktok: bersihkanLink(document.getElementById('tiktok').value),
-    ig: bersihkanLink(document.getElementById('ig').value),
-    fb: bersihkanLink(document.getElementById('fb').value),
-    yt: bersihkanLink(document.getElementById('yt').value),
-    pinterest: bersihkanLink(document.getElementById('pinterest').value),
-    tele: bersihkanLink(document.getElementById('tele').value)
+    waChannel: bersihkanLink(document.getElementById('waChannel').value, 'waChannel'),
+    tiktok: bersihkanLink(document.getElementById('tiktok').value, 'tiktok'),
+    ig: bersihkanLink(document.getElementById('ig').value, 'ig'),
+    fb: bersihkanLink(document.getElementById('fb').value, 'fb'),
+    yt: bersihkanLink(document.getElementById('yt').value, 'yt'),
+    pinterest: bersihkanLink(document.getElementById('pinterest').value, 'pinterest'),
+    tele: bersihkanLink(document.getElementById('tele').value, 'tele')
   };
 
   const adaIsi = Object.values(data).some(v => v);
   if(!adaIsi){
-    alert('Isi minimal satu tautan terlebih dahulu');
+    alert('Isi minimal satu tautan sosial media');
     return;
   }
 
@@ -680,15 +666,22 @@ function proses(){
 }
 
 function salinKode(){
-  navigator.clipboard.writeText(kodeJadi).then(()=>{
-    document.getElementById('popupSalin').classList.add('aktif');
-  }).catch(()=>{
-    alert('Gagal menyalin, salin secara manual dari kotak kode');
+  if(!kodeJadi) return;
+  navigator.clipboard.writeText(kodeJadi).then(() => {
+    document.getElementById('popupSalin').style.display = 'flex';
+  }).catch(() => {
+    const textarea = document.createElement('textarea');
+    textarea.value = kodeJadi;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    document.getElementById('popupSalin').style.display = 'flex';
   });
 }
 
 function tutupPopup(){
-  document.getElementById('popupSalin').classList.remove('aktif');
+  document.getElementById('popupSalin').style.display = 'none';
 }
 
 function bukaDeploy(){
@@ -699,10 +692,4 @@ function mulaiUlang(){
   document.getElementById('namaPemilik').value = '';
   document.getElementById('wa').value = '';
   document.getElementById('waChannel').value = '';
-  document.getElementById('tiktok').value = '';
-  document.getElementById('ig').value = '';
-  document.getElementById('fb').value = '';
-  document.getElementById('yt').value = '';
-  document.getElementById('pinterest').value = '';
-  document.getElementById('tele').value = '';
-  document.getElementB
+  
