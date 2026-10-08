@@ -1,1 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Create Social Media Links by Cimel</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --biru-sangat-lembut: #e6f0fa;
+  --biru-lembut: #93c5fd;
+  --biru-soft: #60a5fa;
+  --biru-sedang: #3b82f6;
+  --biru-dalam: #1e40af;
+  --biru-latar-atas: #f0f6ff;
+  --biru-latar-bawah: #e6effc;
+  --putih: #ffffff;
+  --abu-teks: #475569;
+  --abu-terang: #94a3b8;
+  --batas: #bfdbfe;
+  --transisi: 0.25s ease;
+}
+
+body{
+  background:
+    radial-gradient(circle at 50% -10%, rgba(96,165,250,0.15), transparent 45%),
+    linear-gradient(180deg, var(--biru-latar-atas) 0%, var(--biru-latar-bawah) 100%);
+  color: #1e293b;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container{
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+h1{
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, #1e40af, #3b82f6, #1e40af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle{
+  font-size: 13px;
+  color: var(--abu-teks);
+}
+
+.form-card{
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--batas);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(59,130,246,0.08);
+}
+
+.nama-input{
+  width: 100%;
+  background: rgba(96,165,250,0.06);
+  border: 1px solid var(--batas);
+  color: #1e293b;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  outline: none;
+  transition: all var(--transisi);
+}
+
+.nama-input:focus{
+  border-color: var(--biru-soft);
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.12);
+}
+
+.section-title{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--abu-teks);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.warna-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.warna-item{
+  padding: 10px 8px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.warna-item.terpilih{
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.15);
+}
+
+.warna-sample{
+  width: 100%;
+  height: 24px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #ddd;
+}
+
+.input-group{
+  margin-bottom: 14px;
+}
+
+.input-label{
+  font-size: 13px;
+  color: var(--abu-teks);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.opsional{
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+input{
+  width: 100%;
+  background: rgba(96,165,250,0.06);
+  border: 1px solid var(--batas);
+  color: #1e293b;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: all var(--transisi);
+}
+
+input:focus{
+  border-color: var(--biru-soft);
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.12);
+}
+
+input::placeholder{
+  color: var(--abu-terang);
+}
+
+.btn-proses{
+  width: 100%;
+  background: linear-gradient(90deg, #60a5fa, #93c5fd);
+  color: #1e3a8a;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transisi);
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(96,165,250,0.2);
+}
+
+.btn-proses:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(96,165,250,0.25);
+}
+
+.hasil-card{
+  margin-top: 30px;
+  display: none;
+}
+
+.hasil-card.aktif{
+  display: block;
+}
+
+.tutorial-box{
+  background: rgba(96,165,250,0.08);
+  border: 1px solid var(--batas);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.tutorial-judul{
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--biru-dalam);
+  margin-bottom: 12px;
+}
+
+.tutorial-langkah{
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--abu-teks);
+}
+
+.tutorial-langkah span{
+  color: var(--biru-sedang);
+  font-weight: 600;
+}
+
+.aksi{
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.aksi button{
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transisi);
+}
+
+.btn-buka{
+  background: linear-gradient(90deg, #60a5fa, #93c5fd);
+  border: none;
+  color: #1e3a8a;
+}
+
+.btn-buka:hover{
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-salin{
+  background: rgba(96,165,250,0.1);
+  border: 1px solid var(--batas);
+  color: var(--biru-dalam);
+}
+
+.btn-salin:hover{
+  border-color: var(--biru-soft);
+  background: rgba(96,165,250,0.15);
+}
+
+.btn-ulang{
+  width: 100%;
+  margin-top: 12px;
+  background: rgba(96,165,250,0.12);
+  border: 1px solid var(--batas);
+  color: var(--biru-dalam);
+}
+
+.btn-ulang:hover{
+  background: rgba(96,165,250,0.18);
+}
+
+.kode-area{
+  background: rgba(30,64,175,0.04);
+  border: 1px solid var(--batas);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 11px;
+  color: var(--biru-dalam);
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  user-select: all;
+}
+
+.popup-latar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 64, 175, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.popup-latar.aktif{
+  display: flex;
+}
+
+.popup-kotak{
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 20px;
+  padding: 32px 28px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+  animation: muncul 0.3s ease;
+}
+
+@keyframes muncul{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.popup-ikon{
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #60a5fa, #93c5fd);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.popup-judul{
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+
+.popup-teks{
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.popup-btn{
+  width: 100%;
+  background: linear-gradient(90deg, #60a5fa, #93c5fd);
+  border: none;
+  color: #1e3a8a;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transisi);
+}
+
+.popup-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(96,165,250,0.25);
+}
+
+@media(max-width:400px){
+  h1{font-size: 22px;}
+  .form-card{padding: 20px 16px;}
+  .warna-grid{grid-template-columns: repeat(2, 1fr);}
+  .aksi{flex-direction:column;}
+  .popup-kotak{padding: 24px 20px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Create Social Media Links</h1>
+    <p class="subtitle">by Cimel</p>
+  </div>
+
+  <div class="form-card">
+    <input id="namaPemilik" type="text" class="nama-input" placeholder="Masukkan judul/nama">
+
+    <p class="section-title">Pilih warna tema website kamu</p>
+    <div class="warna-grid" id="pilihanWarna">
+      <div class="warna-item terpilih" data-warna="cyan-putih">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#06b6d4,#ffffff)"></div>
+        Cyan Putih
+      </div>
+      <div class="warna-item" data-warna="rose-putih">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#f43f5e,#ffffff)"></div>
+        Rose Putih
+      </div>
+      <div class="warna-item" data-warna="hitam-putih">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#000000,#ffffff)"></div>
+        Hitam Putih
+      </div>
+      <div class="warna-item" data-warna="gold-hitam">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#d4af37,#121212)"></div>
+        Gold Hitam
+      </div>
+      <div class="warna-item" data-warna="gold-coklat">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#d4af37,#5c3c1f)"></div>
+        Gold Coklat
+      </div>
+      <div class="warna-item" data-warna="alpukat-tosca">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#84cc16,#0d9488)"></div>
+        Alpukat Tosca
+      </div>
+      <div class="warna-item" data-warna="abu-putih">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#6b7280,#f9fafb)"></div>
+        Abu Abu Putih
+      </div>
+      <div class="warna-item" data-warna="orange-putih">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#f97316,#ffffff)"></div>
+        Orange Putih
+      </div>
+      <div class="warna-item" data-warna="kuning-hitam">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#facc15,#000000)"></div>
+        Kuning Hitam
+      </div>
+      <div class="warna-item" data-warna="pink-banana">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#fbcfe8,#fff8c5)"></div>
+        Pink Banana
+      </div>
+      <div class="warna-item" data-warna="merah-hitam">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#dc2626,#000000)"></div>
+        Merah Hitam
+      </div>
+      <div class="warna-item" data-warna="biru-ungu">
+        <div class="warna-sample" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)"></div>
+        Biru Ungu
+      </div>
+    </div>
+
+    <p class="section-title">Tautan Sosial Media</p>
+
+    <div class="input-group">
+      <div class="input-label">WhatsApp Pribadi <span class="opsional">Opsional</span></div>
+      <input id="wa" type="text" placeholder="Nomor atau link">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">WhatsApp Channel <span class="opsional">Opsional</span></div>
+      <input id="waChannel" type="text" placeholder="Link channel">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">TikTok <span class="opsional">Opsional</span></div>
+      <input id="tiktok" type="text" placeholder="Link akun">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">Instagram <span class="opsional">Opsional</span></div>
+      <input id="ig" type="text" placeholder="Link akun">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">Facebook <span class="opsional">Opsional</span></div>
+      <input id="fb" type="text" placeholder="Link akun">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">YouTube <span class="opsional">Opsional</span></div>
+      <input id="yt" type="text" placeholder="Link channel">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">Pinterest <span class="opsional">Opsional</span></div>
+      <input id="pinterest" type="text" placeholder="Link akun">
+    </div>
+
+    <div class="input-group">
+      <div class="input-label">Telegram <span class="opsional">Opsional</span></div>
+      <input id="tele" type="text" placeholder="Link akun">
+    </div>
+
+    <button id="btnProses" class="btn-proses" onclick="proses()">
+      BUAT KODE SAYA
+    </button>
+  </div>
+
+  <div id="hasil" class="form-card hasil-card">
+    <div class="tutorial-box">
+      <p class="tutorial-judul">Cara Pakai</p>
+      <div class="tutorial-langkah">
+        <span>Langkah 1</span> Pilih warna tema website kamu<br>
+        <span>Langkah 2</span> Masukkan judul dan tautan sosial media<br>
+        <span>Langkah 3</span> Klik Buat Kode Saya<br>
+        <span>Langkah 4</span> Salin kode lalu buka Cimel Deploy
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:#64748b;margin-bottom:8px;">Kode HTML kamu</p>
+    <div id="kodeTampil" class="kode-area"></div>
+
+    <div class="aksi">
+      <button class="btn-salin" onclick="salinKode()">SALIN KODE</button>
+      <button class="btn-buka" onclick="bukaDeploy()">BUKA CIMEL DEPLOY</button>
+    </div>
+
+    <button class="btn-ulang" onclick="mulaiUlang()">BUAT LAGI</button>
+  </div>
+</div>
+
+<div id="popupSalin" class="popup-latar">
+  <div class="popup-kotak">
+    <div class="popup-ikon">✓</div>
+    <h3 class="popup-judul">Berhasil Disalin</h3>
+    <p class="popup-teks">Kode sudah tersimpan. Buka Cimel Deploy, tempel kode, lalu klik Proses</p>
+    <button class="popup-btn" onclick="tutupPopup()">SIAP</button>
+  </div>
+</div>
+
+<script>
+let warnaTerpilih = 'cyan-putih';
+
+const pengaturanWarna = {
+  'cyan-putih': { gradien: 'linear-gradient(180deg, #06b6d4, #ffffff)', teks: '#164e63', item: 'rgba(6,182,212,0.1)', itemHover: 'rgba(6,182,212,0.2)', border: '#06b6d4' },
+  'rose-putih': { gradien: 'linear-gradient(180deg, #f43f5e, #ffffff)', teks: '#881329', item: 'rgba(244,63,94,0.08)', itemHover: 'rgba(244,63,94,0.15)', border: '#f43f5e' },
+  'hitam-putih': { gradien: 'linear-gradient(180deg, #000000, #f5f5f5)', teks: '#1f1f1f', item: 'rgba(0,0,0,0.05)', itemHover: 'rgba(0,0,0,0.1)', border: '#333333' },
+  'gold-hitam': { gradien: 'linear-gradient(180deg, #d4af37, #1a1a1a)', teks: '#f0d78c', item: 'rgba(212,175,55,0.1)', itemHover: 'rgba(212,175,55,0.2)', border: '#d4af37' },
+  'gold-coklat': { gradien: 'linear-gradient(180deg, #d4af37, #5c3c1f)', teks: '#f8e7b7', item: 'rgba(212,175,55,0.1)', itemHover: 'rgba(212,175,55,0.2)', border: '#d4af37' },
+  'alpukat-tosca': { gradien: 'linear-gradient(180deg, #84cc16, #0d9488)', teks: '#ffffff', item: 'rgba(255,255,255,0.15)', itemHover: 'rgba(255,255,255,0.25)', border: '#84cc16' },
+  'abu-putih': { gradien: 'linear-gradient(180deg, #6b7280, #f9fafb)', teks: '#374151', item: 'rgba(107,114,128,0.08)', itemHover: 'rgba(107,114,128,0.15)', border: '#6b7280' },
+  'orange-putih': { gradien: 'linear-gradient(180deg, #f97316, #ffffff)', teks: '#9a4006', item: 'rgba(249,115,22,0.08)', itemHover: 'rgba(249,115,22,0.15)', border: '#f97316' },
+  'kuning-hitam': { gradien: 'linear-gradient(180deg, #facc15, #000000)', teks: '#ffffff', item: 'rgba(250,204,21,0.15)', itemHover: 'rgba(250,204,21,0.25)', border: '#facc15' },
+  'pink-banana': { gradien: 'linear-gradient(180deg, #fbcfe8, #fff8c5)', teks: '#7a4a64', item: 'rgba(251,207,232,0.3)', itemHover: 'rgba(255,248,197,0.5)', border: '#f7a8c8' },
+  'merah-hitam': { gradien: 'linear-gradient(180deg, #dc2626, #000000)', teks: '#ffffff', item: 'rgba(220,38,38,0.15)', itemHover: 'rgba(220,38,38,0.25)', border: '#dc2626' },
+  'biru-ungu': { gradien: 'linear-gradient(180deg, #3b82f6, #8b5cf6)', teks: '#ffffff', item: 'rgba(255,255,255,0.15)', itemHover: 'rgba(255,255,255,0.25)', border: '#a78bfa' }
+};
+
+document.querySelectorAll('.warna-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.warna-item').forEach(i => i.classList.remove('terpilih'));
+    item.classList.add('terpilih');
+    warnaTerpilih = item.dataset.warna;
+  });
+});
+
+function bersihkanLink(link, tipe){
+  if(!link || link.trim() === "") return null;
+  link = link.trim();
+  if(tipe === 'wa' && !link.startsWith('http')){
+    let nomor = link.replace(/\D/g,'');
+    return `https://wa.me/${nomor}`;
+  }
+  if(!link.startsWith('http://') && !link.startsWith('https://')){
+    link = 'https://' + link;
+  }
+  return link;
+}
+
+function buatHTMLHalaman(nama, data){
+  const w = pengaturanWarna[warnaTerpilih];
+  
+  let linksHTML = '';
+  const ikon = {
+    wa: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+    waChannel: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+    tiktok: 'https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg',
+    ig: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg',
+    fb: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg',
+    yt: 'https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_(2017).svg',
+    pinterest: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png',
+    tele: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg'
+  };
+  const namaTampil = {
+    wa: 'WhatsApp',
+    waChannel: 'WhatsApp Channel',
+    tiktok: 'TikTok',
+    ig: 'Instagram',
+    fb: 'Facebook',
+    yt: 'YouTube',
+    pinterest: 'Pinterest',
+    tele: 'Telegram'
+  };
+
+  for(const [kunci, link] of Object.entries(data)){
+    if(link){
+      linksHTML += `
+    <a href="${link}" target="_blank" class="link-item">
+      <img src="${ikon[kunci]}" alt="${namaTampil[kunci]}" class="link-ikon">
+      <span>${namaTampil[kunci]}</span>
+    </a>`;
+    }
+  }
+
+  return `<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${nama}</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background: ${w.gradien};
+  color: ${w.teks};
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+.container{max-width:440px;margin:0 auto}
+.judul{text-align:center;margin-bottom:36px}
+.judul h1{font-size:28px;font-weight:700;margin-bottom:8px;color:${w.teks}}
+.judul p{opacity:0.7;font-size:14px}
+.link-item{
+  display:flex;align-items:center;gap:14px;
+  background: ${w.item};
+  border:1px solid ${w.border};
+  border-radius:12px;padding:16px 18px;color:${w.teks};
+  text-decoration:none;font-weight:600;margin-bottom:12px;
+  transition:.25s ease
+}
+.link-item:hover{
+  background: ${w.itemHover};
+  transform:translateY(-2px)
+}
+.link-ikon{
+  width:28px;height:28px;object-fit:contain;
+  background:#fff;border-radius:6px;padding:3px;
+  box-sizing:border-box;flex-shrink:0
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="judul">
+    <h1>${nama}</h1>
+    <p>Tautan Sosial Media</p>
+  </div>
+${linksHTML}
+</div>
+</body>
+</html>`;
+}
+
+let kodeJadi = '';
+
+function proses(){
+  const nama = document.getElementById('namaPemilik').value.trim() || 'My Links';
+
+  const data = {
+    wa: bersihkanLink(document.getElementById('wa').value, 'wa'),
+    waChannel: bersihkanLink(document.getElementById('waChannel').value),
+    tiktok: bersihkanLink(document.getElementById('tiktok').value),
+    ig: bersihkanLink(document.getElementById('ig').value),
+    fb: bersihkanLink(document.getElementById('fb').value),
+    yt: bersihkanLink(document.getElementById('yt').value),
+    pinterest: bersihkanLink(document.getElementById('pinterest').value),
+    tele: bersihkanLink(document.getElementById('tele').value)
+  };
+
+  const adaIsi = Object.values(data).some(v => v);
+  if(!adaIsi){
+    alert('Isi minimal satu tautan terlebih dahulu');
+    return;
+  }
+
+  kodeJadi = buatHTMLHalaman(nama, data);
+  document.getElementById('kodeTampil').textContent = kodeJadi;
+  document.getElementById('hasil').classList.add('aktif');
+  document.getElementById('hasil').scrollIntoView({behavior:'smooth'});
+}
+
+function salinKode(){
+  navigator.clipboard.writeText(kodeJadi).then(()=>{
+    document.getElementById('popupSalin').classList.add('aktif');
+  }).catch(()=>{
+    alert('Gagal menyalin, salin secara manual dari kotak kode');
+  });
+}
+
+function tutupPopup(){
+  document.getElementById('popupSalin').classList.remove('aktif');
+}
+
+function bukaDeploy(){
+  window.open('https://cimel-deploy.vercel.app/', '_blank');
+}
+
+function mulaiUlang(){
+  document.getElementById('namaPemilik').value = '';
+  document.getElementById('wa').value = '';
+  document.getElementById('waChannel').value = '';
+  document.getElementById('tiktok').value = '';
+  document.getElementById('ig').value = '';
+  document.getElementById('fb').value = '';
+  document.getElementById('yt').value = '';
+  document.getElementById('pinterest').value = '';
+  document.getElementById('tele').value = '';
+  document.getElementB
